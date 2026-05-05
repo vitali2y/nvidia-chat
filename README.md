@@ -13,7 +13,7 @@
 ✗ # using prompt as a stdin pipe, e. g. from Markdown file with your code and detailed question
 ✗ cat my_question.md | ./target/release/nvidia-chat
 ~...~
-✗ # using code2prompt tool for generating basis of your project
+✗ # using code2prompt tool for generating basis of your project for further passing generated file to nvidia-chat
 ✗ code2prompt . -t ./my-simple-prompt.hbs -O my-project-$(date +%y%m%d%H%M).md
 ~...~
 ✗ # example of usage together with ripe, Rust pipe editor (https://github.com/vitali2y/ripe)
@@ -22,7 +22,7 @@
 ~...~
 ✗ # example of usage another model
 ✗ export NVIDIA_MODEL="stepfun-ai/step-3.5-flash"
-✗ cat src/main.rs | ripe | ./target/release/mistral-chat
+✗ cat src/main.rs | ripe | ./target/release/nvidia-chat
 ~...~
 ✗
 ```
