@@ -12,7 +12,7 @@ const NVIDIA_API_URL: &str = "https://integrate.api.nvidia.com/v1/chat/completio
 
 // default fallback model
 // under NVIDIA_MODEL env var you can use e. g. "z-ai/glm-4.7", "qwen/qwen3-next-80b-a3b-instruct", "stepfun-ai/step-3.5-flash" models
-const MODEL_NAME: &str = "z-ai/glm-5.1";
+const DEFAULT_MODEL: &str = "z-ai/glm-5.1";
 
 #[derive(Serialize, Deserialize, Debug)]
 struct ChatMessage {
@@ -62,7 +62,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     };
 
-    let model = env::var("NVIDIA_MODEL").unwrap_or_else(|_| MODEL_NAME.to_string());
+    let model = env::var("NVIDIA_MODEL").unwrap_or_else(|_| DEFAULT_MODEL.to_string());
 
     let request_payload = ApiRequest {
         model,
